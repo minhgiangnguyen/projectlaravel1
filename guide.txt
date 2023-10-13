@@ -1,0 +1,25 @@
+-Cài đặt composer
+-Khởi tạo laravel bài thi
+composer create-project laravel/laravel baithi
+-Copy các file bootstrap từ thư mục public (public/css ,js,img )
+-Tạo database,models bằng migration(tạo categories trước, products sau)
+php artisan make:model Flight --migration
+-chạy migration bằng lệnh
+php artisan migrate
+-tạo Controller
+php artisan make:controller UserController
+-routing
+Route::get('/user', [UserController::class, 'index']);
+-Tạo form request validation bằng lệnh
+php artisan make:request StorePostRequest
+-custom Pagination 
+php artisan vendor:publish --tag=laravel-pagination
+
+chỉnh sửa file app\Providers\AppServiceProvider.php
+-Hidden .env
+  Thêm code bên dưới vào file public/.htaccess
+# Hide a specific file
+<Files .env>
+    Order allow,deny
+    Deny from all
+</Files>
